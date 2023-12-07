@@ -15,4 +15,6 @@ public interface EmployeeRepository extends JpaRepository<Employees, Integer> {
             "GROUP BY e.role " +
             "HAVING AVG(e.salary) >= :minAvgSalary", nativeQuery = true)
     List<EmployeeSalaryStats> findRoleMaxSalaryAvgSalary(double minAvgSalary);
+
+    List<Employees> findBySsn(int ssn);
 }

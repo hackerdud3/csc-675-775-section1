@@ -1,7 +1,9 @@
 package com.section1.spring.datajpa.controller;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.section1.spring.datajpa.model.Employees;
 import com.section1.spring.datajpa.repository.*;
@@ -79,7 +81,25 @@ public class CompanyController {
 	}
 
 	@GetMapping("/search")
-	public List<Company> searchCompaniesByName(@RequestParam("name") String name) {
-		return companyRepository.findByNameContainingIgnoreCase(name);
+	public Map<String, List<?>> searchByNameOrSsn(@RequestParam("value") String value) {
+		Map<String, List<?>> searchResults = new HashMap<>();
+		try {
+			int ssn = Integer.parseInt(value); // Parse the value to integer (assuming SSN is an integer)
+			List<Employees> employeesBySsn = employeeRepository.findBySsn(ssn);
+			searchResults.put("employees", employeesBySsn);
+
+			List<Company> companiesByName = companyRepository.findByNameContainingIgnoreCase(value);
+			searchResults.put("companies", companiesByName);
+
+
+			return searchResults;
+		} catch (NumberFormatException e) {
+			List<Company> companiesByName = companyRepository.findByNameContainingIgnoreCase(value);
+			searchResults.put("companies", companiesByName);
+
+
+			return searchResults;
+		}
 	}
+
 }
