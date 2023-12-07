@@ -8,4 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CompanyRepository extends JpaRepository<Company, Long> {
     List<Company> findCompaniesByOperationalCostGreaterThan(BigDecimal cost);
+
+    List<Company> findByNameContainingIgnoreCase(String name);
 }

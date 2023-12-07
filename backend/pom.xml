@@ -9,7 +9,7 @@
 		<version>3.1.0</version>
 		<relativePath />
 	</parent>
-	<groupId>com.bezkoder</groupId>
+	<groupId>com.section1</groupId>
 	<artifactId>775</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-data-jpa</name>
@@ -50,6 +50,8 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
