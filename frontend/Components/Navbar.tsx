@@ -56,7 +56,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function Navbar() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState({
+    companies: [],
+    employees: [],
+  });
 
   const handleSearch = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -64,10 +67,15 @@ export default function Navbar() {
     
     try {
       if(value !== ""){
-        const response = await axios.get(`http://localhost:8080/api/search?name=${value}`);
+        const response = await axios.get(`http://localhost:8080/api/search?value=${value}`);
         setSearchResults(response.data);
+
       }else {
-        setSearchResults([])
+        setSearchResults({
+          companies: [],
+          employees: [],
+        });
+
       }
       
     } catch (error) {
@@ -98,7 +106,7 @@ export default function Navbar() {
               Section-1 675/775
             </Link>
           </Typography>
-          <Typography sx={{marginRight:"12px"}}>Search by Company name</Typography>
+          <Typography sx={{marginRight:"12px"}}>Search by Company name or SSN</Typography>
           <Search >
            
             <SearchIconWrapper>
@@ -113,7 +121,7 @@ export default function Navbar() {
           </Search>
         </Toolbar>
       </AppBar>
-      <div className=' absolute right-6 bg-white w-[235px] px-4'>
+      <div className=' absolute right-6 bg-white w-[235px] px-4 z-[999] shadow-md rounded-sm'>
       <SearchResults results={searchResults} />
       </div>
     </Box>
