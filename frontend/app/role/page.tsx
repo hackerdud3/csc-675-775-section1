@@ -12,7 +12,7 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { Alert, Button } from '@mui/material';
+import { Alert, Button, Typography } from '@mui/material';
 import CustomButton from '@/Components/CustomButton';
 import CustomizedTables from '@/Components/Table';
 import axios from 'axios';
@@ -52,7 +52,8 @@ export default function InputAdornments() {
   };
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent:'center' }}>
-      <div className='p-24 flex flex-col gap-20 justify-center w-[70%]'>
+       <div className='p-24 flex flex-col gap-8 justify-center w-[70%]'>
+    <Typography variant='h6'>Find role of the employees with salary greater than the input value</Typography>
         <FormControl>
           <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
           <OutlinedInput

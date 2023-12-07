@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "Company")
+@Table(name = "Company", indexes = @Index(name = "idx_company_name", columnList = "name"))
 public class Company {
 
 	@Id

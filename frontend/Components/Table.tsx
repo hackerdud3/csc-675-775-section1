@@ -61,7 +61,7 @@ export default function CustomizedTables(props: Props) {
         <TableHead>
         <TableRow>
             {keys.map((key: string, index: number) => (
-              <StyledTableCell align="right" key={index}>
+              <StyledTableCell align="left" key={index}>
                 {key.charAt(0).toUpperCase() + key.slice(1)}
               </StyledTableCell>
             ))}
@@ -71,7 +71,7 @@ export default function CustomizedTables(props: Props) {
           {props.data.map((item:any, index:number) => (
            <StyledTableRow key={index}>
            {Object.keys(item).map((key: string) => (
-             <StyledTableCell align="right" key={key}>
+             <StyledTableCell align="left" key={key}>
                {item[key]}
              </StyledTableCell>
            ))}

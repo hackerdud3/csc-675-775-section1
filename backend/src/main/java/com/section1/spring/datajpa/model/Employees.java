@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 public class Employees {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ssn", nullable = false)
     private Integer ssn;
 
     @Column(name = "role")

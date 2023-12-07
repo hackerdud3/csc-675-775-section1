@@ -1,5 +1,7 @@
 "use client"
-import * as React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+import SearchResults from './SearchResults'; // Import the SearchResults component
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -41,7 +43,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   width: '100%',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     [theme.breakpoints.up('sm')]: {
@@ -54,6 +55,26 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Navbar() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+    
+    try {
+      if(value !== ""){
+        const response = await axios.get(`http://localhost:8080/api/search?name=${value}`);
+        setSearchResults(response.data);
+      }else {
+        setSearchResults([])
+      }
+      
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -67,30 +88,34 @@ export default function Navbar() {
           >
             <MenuIcon />
           </IconButton>
-          {/* <Link href={"/"}> */}
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            <Link href={"/"}>
-            Section-1 675/775
+            <Link href="/">
+              Section-1 675/775
             </Link>
-           
           </Typography>
-          {/* </Link> */}
-          <Search>
+          <Typography sx={{marginRight:"12px"}}>Search by Company name</Typography>
+          <Search >
+           
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
+              onChange={handleSearch}
+              value={searchTerm}
             />
           </Search>
         </Toolbar>
       </AppBar>
+      <div className=' absolute right-6 bg-white w-[235px] px-4'>
+      <SearchResults results={searchResults} />
+      </div>
     </Box>
   );
 }

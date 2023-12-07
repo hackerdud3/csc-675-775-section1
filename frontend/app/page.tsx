@@ -13,7 +13,7 @@ export default function Home() {
   }, 
   {
     name:"Find Employees Role",
-    description:"Find the role of employees, the maximum salary within each role, and the average salary for each role. The results are grouped by the employee's role, and only those groups are included where the average salary is greater than or equal to 60,000.",
+    description:"Find the role of employees, the maximum salary within each role, and the average salary for each role. The results are grouped by the employee's role, and only those groups are included where the average salary is greater than or equal to input value.",
     href: "/role"
   }, 
   {
@@ -21,10 +21,11 @@ export default function Home() {
     description:"Find the names of products and their total purchase quantity (across all customers) where the total purchase quantity is greater than 2.",
     href: "/purchases"
   }, 
+  
   {
-    name:"Find Role and Salary",
-    description:"Find the role and salary of employees where there exists at least one other employee who is a developer and has a salary less than the salary of the first employee.",
-    href: "/salary"
+    name:"Add Employee",
+    description:"To add employee details to the Employees table",
+    href: "/employee"
   }, 
 ]
   return (
@@ -32,7 +33,7 @@ export default function Home() {
       {
         queries.map( (item, index) =>(
           <Link href={item.href}>
-          <ButtonCard key={index} name = {item.name} description = {item.description} />
+           <ButtonCard key={index} name = {item.name} description = {item.description} />
           </Link>
         ))
       }
