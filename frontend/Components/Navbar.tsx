@@ -12,6 +12,7 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Link from 'next/link';
+import { List, ListItem, ListItemText } from '@mui/material';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -122,7 +123,8 @@ export default function Navbar() {
         </Toolbar>
       </AppBar>
       <div className=' absolute right-6 bg-white w-[235px] px-4 z-[999] shadow-md rounded-sm'>
-      <SearchResults results={searchResults} />
+        
+        <SearchResults results={searchResults} />
       </div>
     </Box>
   );

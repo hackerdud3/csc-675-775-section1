@@ -10,10 +10,14 @@ const CustomButton: React.FC<Props> = ({ name, ...buttonProps }) => {
   const buttonStyle = {
     color: 'black',
     backgroundColor: 'primary', // Assuming 'primary' is a valid color variable or string
+    '&:hover': {
+      color: 'white' 
+    },
   };
 
   return (
-    <Button sx={{ marginTop: '18px' }} variant='contained' style={buttonStyle} {...buttonProps}>
+    <Button sx={{  marginTop: '18px',
+    }} variant='contained' style={buttonStyle} {...buttonProps}>
       {name}
     </Button>
   );

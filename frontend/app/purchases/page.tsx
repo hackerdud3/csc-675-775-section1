@@ -53,7 +53,7 @@ export default function Purchases() {
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent:'center' }}>
       <div className='p-24 flex flex-col gap-8 justify-center w-[70%]'>
-    <Typography variant='h6'>Find purchases greater than the input quantity value</Typography>
+    <Typography variant='h6'>Find purchases greater or equal to the input quantity value</Typography>
         <FormControl>
           <InputLabel htmlFor="outlined-adornment-amount">Quantity</InputLabel>
           <OutlinedInput

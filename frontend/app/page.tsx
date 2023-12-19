@@ -7,8 +7,8 @@ import Link from 'next/link';
 export default function Home() {
 
   const queries = [{
-    name:"Find Companies Profit",
-    description:"Find the names of companies and their profits (calculated by subtracting operational cost from revenue) where the profit is greater than Input value.",
+    name:"Find Company's Revenue",
+    description:"Find the names of companies and revenue (calculated by subtracting operational cost from revenue) where the profit is greater than Input value.",
     href: "/profits"
   }, 
   {
@@ -17,7 +17,7 @@ export default function Home() {
     href: "/role"
   }, 
   {
-    name:"Find Products and purchase quantity",
+    name:"Find Products and their purchase quantity",
     description:"Find the names of products and their total purchase quantity (across all customers) where the total purchase quantity is greater than 2.",
     href: "/purchases"
   }, 

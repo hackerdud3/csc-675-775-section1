@@ -6,6 +6,7 @@ type Props = {
 };
 
 const SearchResults = (props: Props) => {
+ 
   return (
     <List disablePadding>
       {props.results?.companies?.map((item: any) => (
@@ -19,6 +20,7 @@ const SearchResults = (props: Props) => {
   primary={`SSN: ${item.ssn}`}
   secondary={`Role: ${item.role}, Salary: ${item.salary}`}
 />
+         
 
         </ListItem>
       ))}

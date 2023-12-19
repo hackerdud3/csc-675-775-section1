@@ -54,7 +54,7 @@ export default function Profits() {
     <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent:'center' }}>
     
       <div className='p-24 flex flex-col gap-8 justify-center w-[70%]'>
-      <Typography variant='h6'>Find profit of the companies greater than the input value</Typography>
+      <Typography variant='h6'>Find operational cost of the companies greater than the input value</Typography>
         <FormControl>
           <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
           <OutlinedInput

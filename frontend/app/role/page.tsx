@@ -53,7 +53,7 @@ export default function InputAdornments() {
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent:'center' }}>
        <div className='p-24 flex flex-col gap-8 justify-center w-[70%]'>
-    <Typography variant='h6'>Find role of the employees with salary greater than the input value</Typography>
+    <Typography variant='h6'>Find role of the employees with salary greater than or equal to the input value</Typography>
         <FormControl>
           <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
           <OutlinedInput
